@@ -1,0 +1,105 @@
+﻿@model IEnumerable<INTEX.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Street_Address1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Street_Address2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Zip_Plus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Area_Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cust_Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Street_Address1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Street_Address2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Zip_Plus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Area_Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cust_Password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CustID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CustID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CustID })
+        </td>
+    </tr>
+}
+
+</table>
