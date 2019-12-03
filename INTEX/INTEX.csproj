@@ -119,6 +119,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Payments.cs" />
+    <Compile Include="Models\Services.cs" />
+    <Compile Include="Models\Services_Materials.cs" />
+    <Compile Include="Models\Services_References.cs" />
+    <Compile Include="Models\Statuses.cs" />
+    <Compile Include="Models\tableAttribute.cs" />
+    <Compile Include="Models\Tests.cs" />
+    <Compile Include="Models\Work_Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
