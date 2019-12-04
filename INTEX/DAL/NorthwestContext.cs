@@ -13,7 +13,12 @@ namespace INTEX.DAL
         {
 
         }
-
+        public DbSet<Customer> customers { get; set; }
+        public DbSet<Employee_Tests> employee_Tests { get; set; }
+        public DbSet<Employees> employees { get; set; }
+        public DbSet<Literature_References> literature_References { get; set; }
+        public DbSet<Materials> materials { get; set; }
+        public DbSet<Compounds> compounds { get; set; }
         public DbSet<Payments> payments { get; set; }
         public DbSet<Services> services { get; set; }
         public DbSet<Services_Materials> services_materials { get; set; }
