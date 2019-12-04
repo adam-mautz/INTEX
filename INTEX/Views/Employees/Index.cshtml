@@ -1,0 +1,18 @@
+﻿@model IEnumerable<INTEX.Models.Employees>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Dashboard</h2>
+
+<a href="@Url.Action("Customers", "Employees")>View Customers</a>
+
+<a href="@Url.Action("WorkOrders", "Employees")>View Current Work Orders</a>
+
+<a href="@Url.Action("PastWorkOrders", "Employees")>Work Orders Archive</a>
+
+<a href="@Url.Action("Employees", "Employees")>Employees List</a>
+
+
+

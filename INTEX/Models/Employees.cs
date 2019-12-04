@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace INTEX.Models
 {
+    [Table("Employees")]
+
     public class Employees
     {
         [Key]
@@ -33,8 +36,10 @@ namespace INTEX.Models
 
         public string Emp_Email { get; set; }
 
+        [Required]
         public string Emp_Username { get; set; }
 
+        [Required]
         public string Emp_Password { get; set; }
     }
 }
