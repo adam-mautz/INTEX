@@ -11,119 +11,116 @@ using INTEX.Models;
 
 namespace INTEX.Controllers
 {
-    public class CustomersController : Controller
+    public class EmployeesController : Controller
     {
         private NorthwestContext db = new NorthwestContext();
 
-        // GET: Customers
+        // GET: Employees
         [Authorize]
         public ActionResult Index()
         {
-            return View(db.customers.ToList());
+            return View(db.employees.ToList());
         }
 
-        // GET: Customers/Details/5
+        //Methods written by hand
+        //
+        
+        
+        
+        
+        
+        
+        // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.customers.Find(id);
-            if (customer == null)
+            Employees employees = db.employees.Find(id);
+            if (employees == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employees);
         }
 
-        // GET: Customers/Create
+        // GET: Employees/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
+        // POST: Employees/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustID,Cust_First_Name,Cust_Last_Name,Cust_Street_Address1,Cust_Street_Address2,Cust_City,Cust_State,Cust_Zip,Cust_Zip_Plus,Cust_Area_Code,Cust_Phone,Cust_Email,Cust_Username,Cust_Password")] Customer customer)
+        public ActionResult Create([Bind(Include = "EmpID,Emp_First_Name,Emp_Last_Name,Emp_Street_Address1,Emp_Street_Address2,Emp_City,Emp_State,Emp_Zip,Emp_Zip_Plus,Emp_Area_Code,Emp_Phone,Emp_Email,Emp_Username,Emp_Password")] Employees employees)
         {
             if (ModelState.IsValid)
             {
-                db.customers.Add(customer);
+                db.employees.Add(employees);
                 db.SaveChanges();
-                return RedirectToAction("Quote", customer.CustID);
+                return RedirectToAction("Index");
             }
 
-            return View(customer);
+            return View(employees);
         }
 
-
-        public ActionResult Quote(int custID)
-        {
-            return View();
-        }
-
-
-
-
-
-
-        // GET: Customers/Edit/5
+        // GET: Employees/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.customers.Find(id);
-            if (customer == null)
+            Employees employees = db.employees.Find(id);
+            if (employees == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employees);
         }
 
-        // POST: Customers/Edit/5
+        // POST: Employees/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustID,Cust_First_Name,Cust_Last_Name,Cust_Street_Address1,Cust_Street_Address2,Cust_City,Cust_State,Cust_Zip,Cust_Zip_Plus,Cust_Area_Code,Cust_Phone,Cust_Email,Cust_Username,Cust_Password")] Customer customer)
+        public ActionResult Edit([Bind(Include = "EmpID,Emp_First_Name,Emp_Last_Name,Emp_Street_Address1,Emp_Street_Address2,Emp_City,Emp_State,Emp_Zip,Emp_Zip_Plus,Emp_Area_Code,Emp_Phone,Emp_Email,Emp_Username,Emp_Password")] Employees employees)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(customer).State = EntityState.Modified;
+                db.Entry(employees).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(customer);
+            return View(employees);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Employees/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Customer customer = db.customers.Find(id);
-            if (customer == null)
+            Employees employees = db.employees.Find(id);
+            if (employees == null)
             {
                 return HttpNotFound();
             }
-            return View(customer);
+            return View(employees);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Employees/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Customer customer = db.customers.Find(id);
-            db.customers.Remove(customer);
+            Employees employees = db.employees.Find(id);
+            db.employees.Remove(employees);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
