@@ -1,7 +1,65 @@
 ﻿
 @{
+    /**/
+
+    /**/
+
+    /**/
+
     ViewBag.Title = "Quote";
 }
 
 <h2>Howdy partner</h2>
 
+@using (Html.BeginForm("Quote", "Customers", FormMethod.Post))
+{
+    <label for="test1"> BP</label>
+    @Html.CheckBox("test1")<br />
+    <label for="test2"> DS</label>
+    @Html.CheckBox("test2")<br />
+    <label for="test3"> IS</label>
+    @Html.CheckBox("test3")<br />
+    <label for="test4" class="iput">PS</label>
+    @Html.CheckBox("test4")<br />
+    <label for="test5">PF</label>
+    @Html.CheckBox("test5")<br />
+    <label for="test6">CS</label>
+    @Html.CheckBox("test6")<br />
+
+    <input type="button" value="Get Price" class="btn btn-default" onclick="getPrice()" />
+
+    <input type="submit" value="Begin Quote" class="btn btn-default" style="padding-left: 20px" />
+}
+
+
+
+
+
+
+
+
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="50" /> Test 1</label>
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="125" /> Test 2</label>
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="75" /> Test 3</label>
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="90" /> Test 4</label>
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="40" /> Test 5</label>
+<label class="checkbox"><input class="iput" type="checkbox" name="T1" value="30" /> Test 6</label>
+
+<h3><u>Total Cost of Assay</u></h3>
+<h4 id="total">$100</h4>
+<script>
+
+    let total = 100;
+    [...document.getElementsByClassName('iput')].forEach(function (item) {
+        item.addEventListener('change', function (e) {
+            if (e.target.checked) {
+                total += parseInt(e.target.value, 10)
+            } else {
+                total -= parseInt(e.target.value, 10)
+            }
+            document.getElementById('total').innerHTML = '$' + total
+        })
+
+    })
+
+</script>

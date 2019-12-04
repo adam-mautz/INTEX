@@ -53,20 +53,28 @@ namespace INTEX.Controllers
             {
                 db.customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Quote", customer.CustID);
+                return RedirectToAction("Quote", "Customers", customer.Cust_Phone);
             }
 
             return View(customer);
         }
 
 
-        public ActionResult Quote(int custID)
+        public ActionResult Quote(string cPhone)
         {
+            ViewBag.basePrice = 100;
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Quote(FormCollection form)
+        {
+            form
 
 
+
+            return View();
+        }
 
 
 
