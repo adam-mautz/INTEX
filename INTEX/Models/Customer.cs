@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace INTEX.Models
 {
-    [Table("Customer")]
+    [Table("Customers")]
     public class Customer
     {
         [Key]
@@ -28,40 +28,40 @@ namespace INTEX.Models
 
         [Required(ErrorMessage = "Address is required")]
         [DisplayName("Street Address")]
-        [StringLength(40)]
+        [StringLength(30)]
         public string Cust_Street_Address1 { get; set; }
 
         [DisplayName("Street Address (cont.)")]
-        [StringLength(40)]
+        [StringLength(30)]
         public string Cust_Street_Address2 { get; set; }
 
         [Required(ErrorMessage = "City is required")]
         [DisplayName("City")]
-        [StringLength(20)]
+        [StringLength(50)]
         public string Cust_City { get; set; }
 
         [Required(ErrorMessage = "State is required")]
         [DisplayName("State")]
-        [StringLength(30)]
+        [StringLength(20)]
         public string Cust_State { get; set; }
 
         [Required(ErrorMessage = "Zip is required")]
         [DisplayName("Zip Code")]
-        [StringLength(30)]
+        [StringLength(5)]
         public string Cust_Zip { get; set; }
 
         [DisplayName("Zip Code Plus")]
-        [StringLength(30)]
+        [StringLength(4)]
         public string Cust_Zip_Plus { get; set; }
 
         [Required(ErrorMessage = "Area code is required")]
         [DisplayName("Area Code")]
-        [StringLength(30)]
+        [StringLength(3)]
         public string Cust_Area_Code { get; set; }
 
         [Required(ErrorMessage = "Phone Number required")]
         [DisplayName("Phone Number")]
-        [StringLength(30)]
+        [StringLength(7)]
         public string Cust_Phone { get; set; }
 
         [Required(ErrorMessage = "Email is required")]
