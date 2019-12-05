@@ -16,20 +16,126 @@ namespace INTEX.Controllers
         private NorthwestContext db = new NorthwestContext();
 
         // GET: Employees
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        //Methods written by hand
+
+        //Shows all customers who have unfinished work orders
+        [HttpGet]
+        public ActionResult CurrentCustomers()
+        {
+            return View(db.customers.ToList());
+        }
+
+        public ActionResult ShowCustomerWorkOrders(int id)
+        {
+            var currentCustomer =
+               db.Database.SqlQuery<Work_Orders>(
+           "Select * " +
+           "FROM Work_Orders " +
+           "WHERE CustID = '" + id + "'"); 
+            return View(currentCustomer.ToList());
+        }
+
+        //Retrieves all the tests that will be performed on a specific work order
+        public ActionResult ShowWorkOrderTests(int id)
+        {
+            var currentWorkOrder =
+               db.Database.SqlQuery<Tests>(
+                   "select t.Compound_Sequence_Code, t.LT_Number, t.Test_Type, t.Comment, t.StatusID, t.Raw_Results, t.Approved, t.Test_Date_Scheduled, t.OrderID " +
+                   "from tests t join work_orders wo on wo.OrderID = t.OrderID " +
+                   "where t.orderID = '" + id + "'"); 
+
+            return View(currentWorkOrder.ToList());
+        }
+
+        public ActionResult TestComment() //displays the view where test info can be uploaded and test comments can be made by Singapore
+        {
+            return View();
+        }
+        
+        [HttpGet]
+        public ActionResult CurrentWorkOrders() //sorts work orders by level of completion and displays them to the view
+        {
+
+            var unscheduledWO
+                = db.Database.SqlQuery<Work_Orders>(
+                    "SELECT * " +
+                    "FROM Work_Orders " +
+                    "WHERE StatusID = 'U'");
+
+            var scheduledWO
+                = db.Database.SqlQuery<Work_Orders>(
+                    "SELECT * " +
+                    "FROM Work_Orders " +
+                    "WHERE StatusID = 'S'");
+
+            var completeWO
+                = db.Database.SqlQuery<Work_Orders>(
+                    "SELECT * " +
+                    "FROM Work_Orders " +
+                    "WHERE StatusID = 'C'");
+
+            unscheduledWO.ToList();
+            scheduledWO.ToList();
+            completeWO.ToList();
+
+            var combine = unscheduledWO.Concat(scheduledWO);
+            var currentWOs = combine.Concat(completeWO);
+
+            return View(currentWOs);
+        }
+
+
+
+
+        [HttpGet]
+        public ActionResult ReportIndex()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CurrentWorkOrders(int OrderID, int LT_Number, int Compound_Sequence_Code)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ProfitabilityReport()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult PerformanceReport()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult DataReport()
+        {
+            return View();
+        }
+
+        public ActionResult Employees()
         {
             return View(db.employees.ToList());
         }
 
-        //Methods written by hand
-        //
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {

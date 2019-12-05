@@ -16,7 +16,7 @@ namespace INTEX.Controllers
         private NorthwestContext db = new NorthwestContext();
 
         // GET: Customers
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             return View(db.customers.ToList());
@@ -70,7 +70,7 @@ namespace INTEX.Controllers
         [HttpPost]
         public ActionResult Quote(FormCollection form)
         {
-            form
+
 
 
 

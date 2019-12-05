@@ -1,18 +1,38 @@
 ﻿@model IEnumerable<INTEX.Models.Employees>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dashboard";
 }
 
-<h2>Dashboard</h2>
+<link rel="stylesheet" type="text/css" href="~/Content/MyStyles.css">
 
-<a href="@Url.Action("Customers", "Employees")>View Customers</a>
+<h1>Dashboard</h1>
 
-<a href="@Url.Action("WorkOrders", "Employees")>View Current Work Orders</a>
-
-<a href="@Url.Action("PastWorkOrders", "Employees")>Work Orders Archive</a>
-
-<a href="@Url.Action("Employees", "Employees")>Employees List</a>
-
+<div style="text-align: center">
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("CurrentCustomers", "Employees")"><button class="homeBtn">Customers with Work Orders</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center"></h2>
+        <a href="@Url.Action("CurrentWorkOrders", "Employees")"><button class="homeBtn">Current Work Orders</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("PastWorkOrders", "Employees")"><button class="homeBtn">Work Orders Archive</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("ReportIndex", "Employees")"><button class="homeBtn">Reports</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("Employees", "Employees")"><button class="homeBtn">Employees List</button></a>
+    </div>
+</div>
 
 

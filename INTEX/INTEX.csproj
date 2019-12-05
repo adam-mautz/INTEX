@@ -197,6 +197,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestsController.cs" />
     <Compile Include="DAL\NorthwestContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -243,6 +244,18 @@
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Employees.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\CurrentCustomers.cshtml" />
+    <Content Include="Views\Employees\CurrentWorkOrders.cshtml" />
+    <Content Include="Views\Employees\View.cshtml" />
+    <Content Include="Views\Employees\ShowCustomerWorkOrders.cshtml" />
+    <Content Include="Views\Employees\ShowWorkOrderTests.cshtml" />
+    <Content Include="Views\Employees\TestComment.cshtml" />
+    <Content Include="Views\Employees\ReportIndex.cshtml" />
+    <Content Include="Views\Employees\ProfitabilityReport.cshtml" />
+    <Content Include="Views\Employees\PerformanceReport.cshtml" />
+    <Content Include="Views\Employees\DataReport.cshtml" />
+    <Content Include="Views\Tests\Index.cshtml" />
+    <Content Include="Views\Tests\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <PropertyGroup>

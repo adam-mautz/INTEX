@@ -1,0 +1,51 @@
+﻿@model INTEX.Models.Tests
+
+@{
+    ViewBag.Title = "Test Comments";
+}
+
+<h2>Test Comments</h2>
+
+<div class="form">
+    <div class="row">
+        <div class="column">
+            <p for="machineData">Upload Summary Report</p>
+            <input type="file" name="summaryReport"><input type="button" value="Upload" /><br /><br />
+
+            <p for="machineData">Upload Test Equipment Data</p>
+            <input type="file" name="machineData"><input type="button" value="Upload" /><br /><br />
+
+            <input placeholder="Comments about the test..." style="height:200px; font-size:14pt; font-style: italic; width: 600px;" />
+        </div>
+
+        <div class="column">
+            <h3>Run Additional Tests</h3>
+            <input type="checkbox" name="test1" /><p>Biochemical Pharmacology (BP)</p><br />
+            <input type="checkbox" name="test2" /><p>DiscoveryScreen (DS)</p><br />
+            <input type="checkbox" name="test3" /><p>ImmunoScreen (IS)</p><br />
+            <input type="checkbox" name="test4" /><p>ProfilingScreen (PF)</p><br />
+            <input type="checkbox" name="test5" /><p>PharmaScreen (PS)</p><br />
+            <input type="checkbox" name="test6" /><p>CustomScreen (CS)</p>
+            <br /><br />
+            <input type="submit" name="submit" value="Submit" />
+        </div>
+    </div>
+</div>
+
+<style>
+    .column {
+      float: left;
+      width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+</style>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

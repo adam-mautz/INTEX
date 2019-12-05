@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Report Index";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/MyStyles.css">
+
+<h2>Report Index</h2>
+
+<div style="text-align: center">
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("ProfitabilityReport", "Employees")"><button class="homeBtn">Profitability Report</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("PerformanceReport", "Employees")"><button class="homeBtn">Performance Report</button></a>
+    </div>
+    <br />
+    <div>
+        <h2 class="btnTitle" style="text-align: center;"></h2>
+        <a href="@Url.Action("DataReport", "Employees")"><button class="homeBtn">Numerical Data Report</button></a>
+    </div>
+    <br />
+</div>

@@ -17,9 +17,9 @@ namespace INTEX.Models
 
         public int LT_Number { get; set; }
 
-        public Boolean Rushed { get; set; }
+        public Boolean? Rushed { get; set; }
 
-        public Decimal Discount_Percentage { get; set; }
+        public Decimal? Discount_Percentage { get; set; }
 
         public string StatusID { get; set; }
 
