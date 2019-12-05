@@ -31,7 +31,7 @@ namespace INTEX.Controllers
             return View(db.customers.ToList());
         }
 
-        public ActionResult ShowCustomerWorkOrders(int id)
+        public ActionResult ShowCustomerWorkOrders(int id) //displays all the work orders with a given CustID
         {
             var currentCustomer =
                db.Database.SqlQuery<Work_Orders>(
@@ -42,7 +42,7 @@ namespace INTEX.Controllers
         }
 
         //Retrieves all the tests that will be performed on a specific work order
-        public ActionResult ShowWorkOrderTests(int id)
+        public ActionResult ShowWorkOrderTests(int? id, int? OrderID)
         {
             var currentWorkOrder =
                db.Database.SqlQuery<Tests>(
@@ -66,13 +66,13 @@ namespace INTEX.Controllers
                 = db.Database.SqlQuery<Work_Orders>(
                     "SELECT * " +
                     "FROM Work_Orders " +
-                    "WHERE StatusID = 'U'");
+                    "WHERE StatusID = 'I'");
 
             var scheduledWO
                 = db.Database.SqlQuery<Work_Orders>(
                     "SELECT * " +
                     "FROM Work_Orders " +
-                    "WHERE StatusID = 'S'");
+                    "WHERE StatusID = 'P'");
 
             var completeWO
                 = db.Database.SqlQuery<Work_Orders>(
@@ -80,7 +80,7 @@ namespace INTEX.Controllers
                     "FROM Work_Orders " +
                     "WHERE StatusID = 'C'");
 
-            unscheduledWO.ToList();
+            unscheduledWO.ToList();//combines the three queries to display data sorted by level of completion
             scheduledWO.ToList();
             completeWO.ToList();
 
@@ -88,6 +88,34 @@ namespace INTEX.Controllers
             var currentWOs = combine.Concat(completeWO);
 
             return View(currentWOs);
+        }
+
+        [HttpGet]
+        public ActionResult PastWorkOrders() //displays all work orders
+        {
+            return View(db.work_orders.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult PastWorkOrders(FormCollection form)//searches database for the orderId searched by the user
+        {
+            String search = form["Search"].ToString();
+
+            var checkSearch =
+            db.Database.SqlQuery<Work_Orders>(
+            "Select * " +
+            "FROM Work_Orders " +
+            "WHERE OrderID = '" + search + "'");
+
+            if (checkSearch.Count() > 0)
+            {
+                return View(checkSearch.ToList());
+            }
+            else
+            {
+                return View(db.work_orders.ToList());
+            }
+            
         }
 
 

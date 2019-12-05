@@ -62,7 +62,8 @@
             @Html.DisplayFor(modelItem => item.Test_Date_Scheduled)
         </td>
         <td>
-            @Html.ActionLink("Input Results", "TestComment", new { id = item.Compound_Sequence_Code})
+            @Html.ActionLink("Input Results", "TestComment", new { id = item.Compound_Sequence_Code }, new { OrderID = item.OrderID }) |
+            @Html.ActionLink("Edit", "Edit", "Tests", new { id = item.Compound_Sequence_Code, OrderID = item.OrderID }, null)
         </td>
     </tr>
 }

@@ -28,5 +28,13 @@ namespace INTEX.Models
         public DateTime? Test_Date_Scheduled { get; set; }
 
         public int OrderID { get; set; }
+
+
     }
+
+    public class testModels
+    {
+        public List<Tests> lstTests { get; set; }
+    }
+
 }

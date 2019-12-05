@@ -1,0 +1,80 @@
+﻿@model IEnumerable<INTEX.Models.Work_Orders>
+
+@{
+    ViewBag.Title = "PastWorkOrders";
+}
+
+<h2>PastWorkOrders</h2><br />
+
+@using (Html.BeginForm("PastWorkOrders", "Employees", FormMethod.Post))
+{
+    <label>Search by OrderID</label>
+    @Html.TextBox("Search")<br /><br />
+}
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LT_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rushed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount_Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reports)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LT_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rushed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount_Percentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reports)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Work_Orders", new { id = item.OrderID }, null) |
+                @Html.ActionLink("Details", "Details", "Work_Orders", new { id = item.OrderID }, null) |
+                @Html.ActionLink("Delete", "Delete", "Work_Orders", new { id = item.OrderID }, null)
+            </td>
+        </tr>
+    }
+
+</table>

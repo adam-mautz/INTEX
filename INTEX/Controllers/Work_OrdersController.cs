@@ -88,7 +88,7 @@ namespace INTEX.Controllers
             {
                 db.Entry(work_Orders).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("PastWorkOrders", "Employees");
             }
             return View(work_Orders);
         }
@@ -116,7 +116,7 @@ namespace INTEX.Controllers
             Work_Orders work_Orders = db.work_orders.Find(id);
             db.work_orders.Remove(work_Orders);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("PastWorkOrders", "Employees");
         }
 
         protected override void Dispose(bool disposing)

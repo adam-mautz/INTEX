@@ -198,6 +198,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
+    <Compile Include="Controllers\Work_OrdersController.cs" />
     <Compile Include="DAL\NorthwestContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -246,7 +247,6 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\CurrentCustomers.cshtml" />
     <Content Include="Views\Employees\CurrentWorkOrders.cshtml" />
-    <Content Include="Views\Employees\View.cshtml" />
     <Content Include="Views\Employees\ShowCustomerWorkOrders.cshtml" />
     <Content Include="Views\Employees\ShowWorkOrderTests.cshtml" />
     <Content Include="Views\Employees\TestComment.cshtml" />
@@ -256,6 +256,16 @@
     <Content Include="Views\Employees\DataReport.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
     <Content Include="Views\Tests\View.cshtml" />
+    <Content Include="Views\Employees\PastWorkOrders.cshtml" />
+    <Content Include="Views\Work_Orders\Create.cshtml" />
+    <Content Include="Views\Work_Orders\Delete.cshtml" />
+    <Content Include="Views\Work_Orders\Details.cshtml" />
+    <Content Include="Views\Work_Orders\Edit.cshtml" />
+    <Content Include="Views\Work_Orders\Index.cshtml" />
+    <Content Include="Views\Tests\Create.cshtml" />
+    <Content Include="Views\Tests\Delete.cshtml" />
+    <Content Include="Views\Tests\Details.cshtml" />
+    <Content Include="Views\Tests\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

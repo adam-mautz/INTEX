@@ -1,0 +1,82 @@
+﻿@model INTEX.Models.Tests
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tests</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LT_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LT_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Raw_Results)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Raw_Results)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Test_Date_Scheduled)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Test_Date_Scheduled)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Compound_Sequence_Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
