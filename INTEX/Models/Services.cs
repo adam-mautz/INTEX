@@ -20,5 +20,13 @@ namespace INTEX.Models
         public Decimal Test_Cost { get; set; }
 
         public Decimal Base_Price { get; set; }
+
+        public bool isChecked { get; set; }
+        
+    }
+
+    public class ServicesModel
+    {
+        public List<Services> lstServices { get; set; }
     }
 }

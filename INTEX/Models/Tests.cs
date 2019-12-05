@@ -24,5 +24,7 @@ namespace INTEX.Models
         public string Raw_Results { get; set; } //this will be holding a text file. Will the data type need to be changed?
 
         public Boolean Approved { get; set; }
+
+        public DateTime Test_Date_Scheduled { get; set; }
     }
 }

@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustPortalStyle.css" />
     <Content Include="Content\MyStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -186,6 +187,7 @@
     <Content Include="bin\roslyn\vbc.rsp" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\CustPortal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -194,9 +196,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Work_OrdersController.cs" />
     <Compile Include="DAL\NorthwestContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,6 +218,7 @@
     <Compile Include="Models\Statuses.cs" />
     <Compile Include="Models\tableAttribute.cs" />
     <Compile Include="Models\Tests.cs" />
+    <Compile Include="Models\View Models\QuotePrice.cs" />
     <Compile Include="Models\Work_Orders.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -235,7 +240,6 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Customers\Quote.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
@@ -243,6 +247,18 @@
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Employees.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Work_Orders\Create.cshtml" />
+    <Content Include="Views\Work_Orders\Delete.cshtml" />
+    <Content Include="Views\Work_Orders\Details.cshtml" />
+    <Content Include="Views\Work_Orders\Edit.cshtml" />
+    <Content Include="Views\Work_Orders\Index.cshtml" />
+    <Content Include="Views\Customers\Quote.cshtml" />
+    <Content Include="Views\Compounds\Create.cshtml" />
+    <Content Include="Views\Compounds\Delete.cshtml" />
+    <Content Include="Views\Compounds\Details.cshtml" />
+    <Content Include="Views\Compounds\Edit.cshtml" />
+    <Content Include="Views\Compounds\Index.cshtml" />
+    <Content Include="Views\Customers\AddQuote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
