@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Screen Shot 2019-12-05 at 11.45.38 AM.png" />
     <Content Include="Content\MyStyles.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -198,7 +199,6 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestsController.cs" />
-    <Compile Include="Controllers\Work_OrdersController.cs" />
     <Compile Include="DAL\NorthwestContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +207,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employees.cs" />
     <Compile Include="Models\Employee_Tests.cs" />
+    <Compile Include="Models\Invoice.cs" />
     <Compile Include="Models\Literature_References.cs" />
     <Compile Include="Models\Materials.cs" />
     <Compile Include="Models\Payments.cs" />
@@ -247,6 +248,7 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\CurrentCustomers.cshtml" />
     <Content Include="Views\Employees\CurrentWorkOrders.cshtml" />
+    <Content Include="Views\Employees\View.cshtml" />
     <Content Include="Views\Employees\ShowCustomerWorkOrders.cshtml" />
     <Content Include="Views\Employees\ShowWorkOrderTests.cshtml" />
     <Content Include="Views\Employees\TestComment.cshtml" />
@@ -256,16 +258,11 @@
     <Content Include="Views\Employees\DataReport.cshtml" />
     <Content Include="Views\Tests\Index.cshtml" />
     <Content Include="Views\Tests\View.cshtml" />
-    <Content Include="Views\Employees\PastWorkOrders.cshtml" />
-    <Content Include="Views\Work_Orders\Create.cshtml" />
-    <Content Include="Views\Work_Orders\Delete.cshtml" />
-    <Content Include="Views\Work_Orders\Details.cshtml" />
-    <Content Include="Views\Work_Orders\Edit.cshtml" />
-    <Content Include="Views\Work_Orders\Index.cshtml" />
-    <Content Include="Views\Tests\Create.cshtml" />
-    <Content Include="Views\Tests\Delete.cshtml" />
-    <Content Include="Views\Tests\Details.cshtml" />
-    <Content Include="Views\Tests\Edit.cshtml" />
+    <Content Include="Views\Customers\AddQuote.cshtml" />
+    <Content Include="Views\Customers\WorkOrders.cshtml" />
+    <Content Include="Views\Customers\CompletedOrders.cshtml" />
+    <Content Include="Views\Customers\Report.cshtml" />
+    <Content Include="Views\Customers\Invoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

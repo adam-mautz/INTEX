@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="~/Content/MyStyles.css">
 
 <body>
-  
+
 
     <div style="text-align: center; padding: 100px">
         <div>
@@ -11,17 +11,18 @@
         </div>
         <br />
         <div>
-            <a href="@Url.Action("Index", "Work_Orders")"><button class="homeBtn">Order Status</button></a>
+            <a href="@Url.Action("WorkOrders", "Customers")"><button class="homeBtn">Order Status</button></a>
         </div>
         <br />
         <div>
-            <a href="@Url.Action("Reports", "Customers")"><button class="homeBtn">Completed Reports</button></a>
+            <a href="@Url.Action("CompletedOrders", "Customers")"><button class="homeBtn">Completed Orders</button></a>
         </div>
         <br />
         <div>
-            <a href="@Url.Action("Create", "Customers")"><button class="homeBtn">Pay for your Orders</button></a>
+            <a href="@Url.Action("Invoice", "Customers")"><button class="homeBtn">Pay for your Orders</button></a>
         </div>
     </div>
 
+    
 
 </body>
