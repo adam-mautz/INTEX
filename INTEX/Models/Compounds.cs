@@ -7,7 +7,7 @@ using System.Web;
 
 namespace INTEX.Models
 {
-    [Table("Compunds")]
+    [Table("Compounds")]
     public class Compounds
     {
         [Key]
@@ -15,7 +15,7 @@ namespace INTEX.Models
 
         public string Compound_Name { get; set; }
 
-        public decimal Compund_Quantity { get; set; }
+        public decimal Compound_Quantity { get; set; }
 
         public string Appearance { get; set; }
 

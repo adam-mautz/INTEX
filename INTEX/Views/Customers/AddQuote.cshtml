@@ -1,0 +1,25 @@
+﻿@model INTEX.Models.Services
+
+@{
+    ViewBag.Title = "AddQuote";
+}
+
+<h1>Confirm Order</h1>
+
+<p><b>Customer Name: </b>@ViewBag.fName @ViewBag.lName</p>
+<br />
+<p> <b>Tests to be completed:</b>@ViewBag.tests</p>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+ 
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit Order" class="btn btn-default" />
+            </div>
+        </div>
+}
+

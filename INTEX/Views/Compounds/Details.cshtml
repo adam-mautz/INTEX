@@ -1,0 +1,90 @@
+﻿@model INTEX.Models.Compounds
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compounds</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Compound_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compound_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Compund_Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compund_Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Appearance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Appearance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estimated_Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estimated_Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Arrived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Arrived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Received)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Received)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Due)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Due)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Actual_Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actual_Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_Tolerated_Dose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_Tolerated_Dose)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LT_Number }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
