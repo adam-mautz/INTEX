@@ -264,6 +264,12 @@
     <Content Include="Views\Customers\CompletedOrders.cshtml" />
     <Content Include="Views\Customers\Report.cshtml" />
     <Content Include="Views\Customers\Invoice.cshtml" />
+    <Content Include="Views\Work_Orders\Create.cshtml" />
+    <Content Include="Views\Work_Orders\Delete.cshtml" />
+    <Content Include="Views\Work_Orders\Details.cshtml" />
+    <Content Include="Views\Work_Orders\Edit.cshtml" />
+    <Content Include="Views\Work_Orders\Index.cshtml" />
+    <Content Include="Views\Employees\PastWorkOrders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
