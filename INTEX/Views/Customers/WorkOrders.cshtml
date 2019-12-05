@@ -1,0 +1,107 @@
+﻿@model IEnumerable<INTEX.Models.Work_Orders>
+
+@{
+    ViewBag.Title = "WorkOrders";
+}
+
+<h2>WorkOrders</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LT_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rushed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Discount_Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reports)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LT_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rushed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount_Percentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reports)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 25%;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: #f2f2f2
+    }
+
+    th {
+        background-color: #7C87A6;
+        color: white;
+    }
+</style>
+
+
+<table class="table-hover table-bordered">
+    <tr>
+        <th>StatusID</th>
+        <th>Meaning</th>
+    </tr>
+    <tr>
+        <td>U</td>
+        <td>Unscheduled</td>
+    </tr>
+    <tr>
+        <td>S</td>
+        <td>Scheduled</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>Complete</td>
+    </tr>
+</table>

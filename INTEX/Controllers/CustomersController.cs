@@ -13,6 +13,8 @@ namespace INTEX.Controllers
 {
     public class CustomersController : Controller
     {
+        public static Customer newCustomer = new Customer();
+
         private NorthwestContext db = new NorthwestContext();
 
         // GET: Customers
@@ -52,6 +54,7 @@ namespace INTEX.Controllers
         {
             if (ModelState.IsValid)
             {
+                newCustomer = customer;
                 db.customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Quote", "Customers", customer.Cust_Phone);
@@ -120,7 +123,8 @@ namespace INTEX.Controllers
         public ActionResult AddQuote(Services model)
         {
             NorthwestContext newDb = new NorthwestContext();
-
+            
+            //ADD COMPOUND TO DB
             Compounds myCompound = new Compounds();
             myCompound.Actual_Weight = 12;
             myCompound.Appearance = "blue";
@@ -135,6 +139,7 @@ namespace INTEX.Controllers
             db.compounds.Add(myCompound);
             db.SaveChanges();
 
+            //ADD SEQUENCES TO DB FOR EVERY TEST SELECTED
             Tests myTest = new Tests();
             int iCount = 0;
             List<string> typeList = new List<string>();
@@ -161,9 +166,41 @@ namespace INTEX.Controllers
                 db.SaveChanges();
 
             }
+            //ADD NEW WORK ORDER TO DB
+            Work_Orders workOrder = new Work_Orders();
+            workOrder.LT_Number = myCompound.LT_Number;
+            workOrder.Rushed = false;
+            workOrder.Discount_Percentage = 0;
+            workOrder.StatusID = "C";
+            workOrder.Comments = "This is a comment.";
+            workOrder.Reports = "this is a report";
+            //  workOrder.CustID = newCustomer.CustID;     for when you can have custID from login
+            workOrder.CustID = 11;
+
+            db.work_orders.Add(workOrder);
+            db.SaveChanges();
 
 
+            //ADD PAYMENT INTO DB
+            decimal price = 0;
+            var today = DateTime.Today;
+            for (int i = 0; i < newModel.lstServices.Count(); i++)
+            {
+                if (newModel.lstServices[i].isChecked)
+                {
+                    price += newModel.lstServices[i].Test_Cost;
+                }
+            }
+            Payments payment = new Payments();
+            payment.CustID = 11;   //hard coded for now
+            payment.OrderID = workOrder.OrderID;
+            payment.Payment_Due_Date = today.AddMonths(1);
+            payment.Subtotal = price;
+            payment.Discount = 0;
+            payment.Total_Quote_Price = price - (price*payment.Discount);
 
+            db.payments.Add(payment);
+            db.SaveChanges();
 
 
 
@@ -171,9 +208,44 @@ namespace INTEX.Controllers
         }
 
  
+        public ActionResult WorkOrders()
+        {
+            var currentCustomer =
+                db.Database.SqlQuery<Work_Orders>(
+            "Select * " +
+            "FROM Work_Orders " +
+            "WHERE CustID = '" + 11 + "'");
+            return View(currentCustomer.ToList());
+        }
 
 
+        public ActionResult CompletedOrders()
+        {
+            var currentCustomer =
+                db.Database.SqlQuery<Work_Orders>(
+            "Select * " +
+            "FROM Work_Orders " +
+            "WHERE CustID = '" + 11 + "' AND StatusID = 'C' ");
+            return View(currentCustomer.ToList());
+        }
 
+
+        public ActionResult Report(int orderID)
+        {
+            ViewBag.OrderID = orderID;
+            return View();
+        }
+
+
+        public ActionResult Invoice()
+        {
+            var currentCustomer =
+               db.Database.SqlQuery<Payments>(
+           "Select * " +
+           "FROM payments " +
+           "WHERE CustID = '" + 11 + "'");
+            return View(currentCustomer.ToList());
+        }
 
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
