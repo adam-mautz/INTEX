@@ -7,23 +7,22 @@
 <h1>Confirm Order</h1>
 
 <div class="jumbotron">
-    <p><b>Customer Name: </b>@ViewBag.fName @ViewBag.lName</p>
-    <br />
-    <p> <b>Tests to be completed:</b>@ViewBag.tests</p>
-    <br />
-    <p> <b>Total Price: $</b>@ViewBag.Price</p>
+    <div class="container">
+        <p><b>Customer Name: </b>@ViewBag.fName @ViewBag.lName</p>
+        <br />
+        <p> <b>Tests to be completed:</b>@ViewBag.tests</p>
+        <br />
+        <p> <b>Total Price: $</b>@ViewBag.Price</p>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit Order" class="fileBtn" />
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit Order" class="fileBtn" />
+                </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 
 </div>
