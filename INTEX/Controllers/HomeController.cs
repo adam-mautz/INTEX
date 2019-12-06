@@ -1,4 +1,9 @@
-﻿using INTEX.DAL;
+﻿/****Adam Mautz, Mckay Bryson, AMber Hewitt, MAtthew Brown 
+*****Majority of code is scaffolded. Most handwritten code found in the Customers, Employees, and Tests controllers.
+**/
+
+
+using INTEX.DAL;
 using INTEX.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +29,7 @@ namespace INTEX.Controllers
             return View();
         }
 
-
+        //Login logic
         [HttpPost]
         public ActionResult Login(FormCollection form, bool rememberMe = false)
         {

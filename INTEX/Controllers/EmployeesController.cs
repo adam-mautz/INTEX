@@ -16,7 +16,7 @@ namespace INTEX.Controllers
         private NorthwestContext db = new NorthwestContext();
 
         // GET: Employees
-        //[Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             return View();

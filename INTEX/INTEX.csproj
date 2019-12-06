@@ -165,6 +165,7 @@
     <Content Include="Content\CustPortalStyle.css" />
     <Content Include="Content\Images\background.jpg" />
     <Content Include="Content\Images\Performance Report.png" />
+    <Content Include="Content\Images\report.png" />
     <Content Include="Content\Images\Screen Shot 2019-12-05 at 11.45.38 AM.png" />
     <Content Include="Content\MyStyles.css" />
     <Content Include="Content\Site.css" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CompoundsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -277,6 +279,8 @@
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Shared\Employee_Layout.cshtml" />
     <Content Include="Views\Work_Orders\EditForShowWO.cshtml" />
+    <Content Include="Views\Shared\HomePage.cshtml" />
+    <Content Include="Views\Shared\NewCust.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
