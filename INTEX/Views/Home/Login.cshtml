@@ -1,16 +1,23 @@
 ﻿@model INTEX.Models.Customer
-
 @{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/HomePage.cshtml";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
 
-<h2>Login</h2>
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-    <label for="inputEmail">Username</label>
-    @Html.TextBox("Username")<br /><br />
-    <label for="inputPassword">Password</label>
-    @Html.Password("Password")<br /><br />
-    <button type="submit">Login</button>
-}
+
+<div style="text-align: center">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        <label for="inputEmail">Username</label>
+        @Html.TextBox("Username")<br /><br />
+        <label for="inputPassword">Password</label>
+        @Html.Password("Password")<br /><br />
+        <button type="submit" class="fileBtn" style="text-align:center">Login</button>
+    }
+</div>

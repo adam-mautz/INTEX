@@ -2,51 +2,58 @@
 @{
     ViewBag.Title = "Quote";
 }
+<div class="container body-content"  style="padding-top: 20px">
 
 
-<h2>Quote</h2>
+    <div class="jumbotron" style="padding-top: 20px">
+        <h2>Quote</h2>
 
 
-@using (Html.BeginForm())
-{
-    <table>
-        @for (int i = 0; i < Model.lstServices.Count() - 1; i++)
+        @using (Html.BeginForm())
         {
-            <tr>
-                <td style="background-color: #DBDBDB; text-align: left">
-                    @Html.CheckBoxFor(model => model.lstServices[i].isChecked)
-                    <label>@Model.lstServices[i].Test_Name </label>
-                    @Html.HiddenFor(model => model.lstServices[i].Procedure_Description)
-                    @Html.HiddenFor(model => model.lstServices[i].Test_Cost)
-                    @Html.HiddenFor(model => model.lstServices[i].Test_Name)
-                    @Html.HiddenFor(model => model.lstServices[i].Test_Type)
-                </td>
-            </tr>
+
+            <table style="background-color: #eee; width: 100%">
+                @for (int i = 0; i < Model.lstServices.Count() - 1; i++)
+                {
+                    <tr>
+                        <td style="background-color: #eee; text-align: left">
+                            @Html.CheckBoxFor(model => model.lstServices[i].isChecked)
+                            <label>@Model.lstServices[i].Test_Name </label>
+                            @Html.HiddenFor(model => model.lstServices[i].Procedure_Description)
+                            @Html.HiddenFor(model => model.lstServices[i].Test_Cost)
+                            @Html.HiddenFor(model => model.lstServices[i].Test_Name)
+                            @Html.HiddenFor(model => model.lstServices[i].Test_Type)
+                        </td>
+                    </tr>
+                }
+                <br />
+                <tr>
+                    <td style="text-align: left; background-color: #eee">
+                        @Html.CheckBoxFor(model => model.lstServices[6].isChecked)
+                        <label>@Model.lstServices[6].Test_Name </label>
+                        @Html.HiddenFor(model => model.lstServices[6].Procedure_Description)
+                        @Html.HiddenFor(model => model.lstServices[6].Test_Cost)
+                        @Html.HiddenFor(model => model.lstServices[6].Test_Name)
+                        @Html.HiddenFor(model => model.lstServices[6].Test_Type)
+                    </td>
+                </tr>
+
+            </table>
+            <br />
+            <p>*  This test requires other tests to be performed. Quote price reflects all tests to be done.</p>
+
+            <p>**  By clicking this box you request that conditional testing is performed regardless of necessary trigger. Quoted price reflects this preference.</p>
+
+            <h2>@ViewBag.Price</h2>
+
+
+            <input type="submit" name="name" class="btn btn-default" value="Get Price" />
+            <input type="button"
+                   value="Submit Quote"
+                   class="btn btn-default"
+                   onclick="location.href='@Url.Action("AddQuote", "Customers", new { custPhone = ViewBag.phone })'" />
         }
-        <br />
-        <tr>
-            <td style="text-align: left">
-                @Html.CheckBoxFor(model => model.lstServices[6].isChecked)
-                <label>@Model.lstServices[6].Test_Name </label>
-                @Html.HiddenFor(model => model.lstServices[6].Procedure_Description)
-                @Html.HiddenFor(model => model.lstServices[6].Test_Cost)
-                @Html.HiddenFor(model => model.lstServices[6].Test_Name)
-                @Html.HiddenFor(model => model.lstServices[6].Test_Type)
-            </td>
-        </tr>
 
-    </table>
-    <br />
-    <p>*  This test requires other tests to be performed. Quote price reflects all tests to be done.</p>
+    </div>
 
-    <p>**  By clicking this box you request that conditional testing is performed regardless of necessary trigger. Quoted price reflects this preference.</p>
-
-    <h2>@ViewBag.Price</h2>
-
-
-    <input type="submit" name="name" class="btn btn-default" value="Get Price" />
-    <input type="button"
-           value="Submit Quote"
-           class="btn btn-default"
-           onclick="location.href='@Url.Action("AddQuote", "Customers", new { custPhone = ViewBag.phone })'" />
-}
+</div>

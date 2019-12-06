@@ -117,6 +117,7 @@ namespace INTEX.Controllers
         {
            newModel.lstServices[6].isChecked = false;
            int custID = 11;
+           decimal price = 0;
            Customer cust = db.customers.Find(custID);
            ViewBag.fName = cust.Cust_First_Name;
            ViewBag.lName = cust.Cust_Last_Name;
@@ -126,10 +127,12 @@ namespace INTEX.Controllers
                 if (newModel.lstServices[i].isChecked)
                 {
                     sTests += ", " + newModel.lstServices[i].Test_Name;
+                    price += newModel.lstServices[i].Test_Cost;
                 }
             }
             sTests = sTests.Substring(1);
             ViewBag.tests = sTests;
+            ViewBag.Price = price;
             return View();
         }
       
@@ -154,6 +157,21 @@ namespace INTEX.Controllers
             db.compounds.Add(myCompound);
             db.SaveChanges();
 
+
+            //ADD NEW WORK ORDER TO DB
+            Work_Orders workOrder = new Work_Orders();
+            workOrder.LT_Number = myCompound.LT_Number;
+            workOrder.Rushed = false;
+            workOrder.Discount_Percentage = 0;
+            workOrder.StatusID = "C";
+            workOrder.Comments = "This is a comment.";
+            workOrder.Reports = "this is a report";
+            //  workOrder.CustID = newCustomer.CustID;     for when you can have custID from login
+            workOrder.CustID = 11;
+
+            db.work_orders.Add(workOrder);
+            db.SaveChanges();
+
             //ADD SEQUENCES TO DB FOR EVERY TEST SELECTED
             Tests myTest = new Tests();
             int iCount = 0;
@@ -176,24 +194,12 @@ namespace INTEX.Controllers
                 myTest.Raw_Results = "pinvv23489tyhc34cfinjhrep";
                 myTest.Approved = false;
                 myTest.Test_Date_Scheduled = Convert.ToDateTime("2020-01-02 12:45:00");
+                myTest.OrderID = workOrder.OrderID;
 
                 db.tests.Add(myTest);
                 db.SaveChanges();
 
             }
-            //ADD NEW WORK ORDER TO DB
-            Work_Orders workOrder = new Work_Orders();
-            workOrder.LT_Number = myCompound.LT_Number;
-            workOrder.Rushed = false;
-            workOrder.Discount_Percentage = 0;
-            workOrder.StatusID = "C";
-            workOrder.Comments = "This is a comment.";
-            workOrder.Reports = "this is a report";
-            //  workOrder.CustID = newCustomer.CustID;     for when you can have custID from login
-            workOrder.CustID = 11;
-
-            db.work_orders.Add(workOrder);
-            db.SaveChanges();
 
 
             //ADD PAYMENT INTO DB
