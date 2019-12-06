@@ -27,6 +27,7 @@ namespace INTEX.Models
         public Decimal? Discount_Percentage { get; set; }
 
         [Display(Name = "Status")]
+        [StringLength(1, ErrorMessage = "Enter U for Uncheduled, I for Incomplete, or C for Complete")]
         public string StatusID { get; set; }
 
         [Display(Name = "Comments")]

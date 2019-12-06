@@ -5,12 +5,19 @@
     Layout = "~/Views/Shared/Employee_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Work Order Details</h2>
 
 <div>
-    <h4>Work_Orders</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderID)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.CustID)
         </dt>
@@ -40,7 +47,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Discount_Percentage)
+            @Html.DisplayFor(model => model.Discount_Percentage)%
         </dd>
 
         <dt>

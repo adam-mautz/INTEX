@@ -93,6 +93,37 @@ namespace INTEX.Controllers
             return View(work_Orders);
         }
 
+        // GET: Work_Orders/EditForShowWO/5
+        public ActionResult EditForShowWO(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Work_Orders work_Orders = db.work_orders.Find(id);
+            if (work_Orders == null)
+            {
+                return HttpNotFound();
+            }
+            return View(work_Orders);
+        }
+
+        // POST: Work_Orders/EditForShowWO/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditForShowWO([Bind(Include = "OrderID,CustID,LT_Number,Rushed,Discount_Percentage,StatusID,Comments,Reports")] Work_Orders work_Orders, int CustID)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(work_Orders).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ShowCustomerWorkOrders", "Employees", new { id = CustID });
+            }
+            return View(work_Orders);
+        }
+
         // GET: Work_Orders/Delete/5
         public ActionResult Delete(int? id)
         {

@@ -25,7 +25,6 @@
             color: #7C87A6;
         }
 
-
         li {
             float: left;
             display: inline;
@@ -67,6 +66,55 @@
                     background-color: #4CAF50;
                     color: white;
                 }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            background-image: url('https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2555&q=80'); /** background-color: #DBDBDB;**/
+        }
+
+        .homeBtn {
+            width: 391px;
+            height: 60px;
+            border-radius: 12px;
+            background-color: #7C87A6;
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+
+        .homeHead {
+            position: absolute;
+            width: 1440px;
+            height: 360px;
+            left: 0px;
+            top: 0px;
+            background: url("https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80"), #7C87A6;
+        }
+
+        .header {
+            margin: 0px;
+            text-align: center;
+            width: auto;
+            height: 360px;
+            color: white;
+            font-size: 30px;
+            background: url("https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80");
+            background-size: cover; /* or contain depending on what you want */
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .btnTitle {
+            font-family: Cambria;
+        }
     </style>
 
     <meta charset="utf-8" />
@@ -74,6 +122,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MyStyles.css">
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 
@@ -93,12 +142,12 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Northwest Labs</p>
-        </footer>
+
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
+<footer>
+</footer>
 </html>

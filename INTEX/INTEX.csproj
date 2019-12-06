@@ -273,6 +273,7 @@
     <Content Include="Views\Tests\Details.cshtml" />
     <Content Include="Views\Tests\Edit.cshtml" />
     <Content Include="Views\Shared\Employee_Layout.cshtml" />
+    <Content Include="Views\Work_Orders\EditForShowWO.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
