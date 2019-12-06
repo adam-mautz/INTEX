@@ -1,17 +1,19 @@
 ﻿@model IEnumerable<INTEX.Models.Employees>
 
 @{
-    ViewBag.Title = "Dashboard";
+    ViewBag.Title = "Employee Dashboard";
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
 }
+
 
 <link rel="stylesheet" type="text/css" href="~/Content/MyStyles.css">
 
-<h1>Dashboard</h1>
+<h1 style="text-align: center;">Employee Dashboard</h1>
 
 <div style="text-align: center">
     <div>
         <h2 class="btnTitle" style="text-align: center;"></h2>
-        <a href="@Url.Action("CurrentCustomers", "Employees")"><button class="homeBtn">Customers with Work Orders</button></a>
+        <a href="@Url.Action("CurrentCustomers", "Employees")"><button class="homeBtn">Work Orders</button></a>
     </div>
     <br />
     <div>

@@ -11,20 +11,28 @@ namespace INTEX.Models
     public class Work_Orders
     {
         [Key]
+        [Display(Name = "Order ID")]
         public int OrderID { get; set; }
 
+        [Display(Name = "Customer ID")]
         public int CustID { get; set; }
 
+        [Display(Name = "LT Number")]
         public int LT_Number { get; set; }
 
+        [Display(Name = "Rush Order")]
         public Boolean? Rushed { get; set; }
 
+        [Display(Name = "Discount %")]
         public Decimal? Discount_Percentage { get; set; }
 
+        [Display(Name = "Status")]
         public string StatusID { get; set; }
 
-        public string Comments { get; set; }//ssms has this as a varbinary data type, so string here might not be large enough
+        [Display(Name = "Comments")]
+        public string Comments { get; set; }
 
-        public string Reports { get; set; } //ssms has this as a varbinary data type, so string here might not be large enough
+        [Display(Name = "Summary Report")]
+        public string Reports { get; set; } 
     }
 }
