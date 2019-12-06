@@ -81,11 +81,11 @@
 
     <div class="topnav">
         <ul>
-            <li><a href="@Url.Action("Index", "Customers", new { id = UrlParameter.Optional })">Home</a></li>
-            <li><a href="@Url.Action("Quote", "Customers", new { id = UrlParameter.Optional })">New Quote</a></li>
-            <li><a href="@Url.Action("WorkOrders", "Customers", new { id = UrlParameter.Optional })">Orders</a></li>
-            <li><a href="@Url.Action("CompletedOrders", "Customers", new { id = UrlParameter.Optional })">Reports</a></li>
-            <li><a href="@Url.Action("Invoice", "Customers", new { id = UrlParameter.Optional })">Pay Bill</a></li>
+            <li><a href="@Url.Action("Index", "Employees", new { id = UrlParameter.Optional })">Home</a></li>
+            <li><a href="@Url.Action("CurrentCustomers", "Employees", new { id = UrlParameter.Optional })">Customers</a></li>
+            <li><a href="@Url.Action("CurrentWorkOrders", "Employees", new { id = UrlParameter.Optional })">Current Orders</a></li>
+            <li><a href="@Url.Action("PastWorkOrders", "Employees", new { id = UrlParameter.Optional })">Record Archive</a></li>
+            <li><a href="@Url.Action("ReportIndex", "Employees", new { id = UrlParameter.Optional })">Reports</a></li>
         </ul>
     </div>
 

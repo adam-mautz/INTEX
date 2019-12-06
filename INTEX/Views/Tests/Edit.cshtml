@@ -1,15 +1,17 @@
 ﻿@model INTEX.Models.Tests
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Test";
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Edit Test</h2>
 
 @using (Html.BeginForm())
+
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Tests</h4>
         <hr />
@@ -51,8 +53,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Raw_Results, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Raw_Results, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Raw_Results, "", new { @class = "text-danger" })
+                <input type="file" name="FileUpload" />
+                @*@Html.EditorFor(model => model.Raw_Results, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Raw_Results, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -91,5 +94,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Tests", "ShowWorkOrderTests", "Employees", new { id = Model.OrderID}, null)
 </div>

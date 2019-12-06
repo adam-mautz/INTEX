@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Current Customers";
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
 }
 
 <h2>Current Customers</h2>
@@ -96,3 +97,5 @@
             @Html.ActionLink("Work Orders", "ShowCustomerWorkOrders", new { id = item.CustID })
     </tr>
     }
+</table>
+
