@@ -5,21 +5,29 @@
 }
 
 .homeBtn {
-    width: 391px;
-    height: 60px;
-    border-radius: 12px;
-    background-color: #7C87A6;
-    border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
+    box-shadow: 0px 5px 7px -1px #979e95;
+    background-color: #7c87a6;
+    border-radius: 25px;
+    border: 1px solid #7c87a6;
     display: inline-block;
-    margin: 4px 2px;
     cursor: pointer;
-    font-size: 30px;
-    vertical-align: middle;
+    color: #DBDBDB;
+    font-family: Arial;
+    font-size: 24px;
+    padding: 12px 76px;
+    text-decoration: none;
 }
+
+    .homeBtn:hover {
+        background-color: #8f99b3;
+    }
+
+    .homeBtn:active {
+        position: relative;
+        top: 1px;
+    }
+
+        
 
 .homeHead {
     position: absolute;
@@ -52,11 +60,10 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #7C87A6;
 }
 
 li {
-    float: left;
     display: inline;
 }
 

@@ -65,7 +65,7 @@ namespace INTEX.Controllers
 
         public static string custPhone;
 
-        public ActionResult Quote(string cPhone)
+        public ActionResult Quote()
         {
             ServicesModel services = new ServicesModel();
             using (db)
@@ -73,7 +73,6 @@ namespace INTEX.Controllers
                 services.lstServices = db.services.ToList<Services>();
             }
 
-            ViewBag.Phone = cPhone;
             return View(services);
         }
 
@@ -84,6 +83,21 @@ namespace INTEX.Controllers
         public ActionResult Quote(ServicesModel model)
         {
             decimal price = 0;
+
+            //USED FOR REQUIRED TESTING RELATIONSHIPS
+            if (model.lstServices[2].isChecked == true)
+            {
+                model.lstServices[0].isChecked = true;
+            }
+            //USED IF CONDITIONAL TESTING IS CHECKED
+            if (model.lstServices[6].isChecked)
+            {
+                if (model.lstServices[3].isChecked == true)
+                {
+                    model.lstServices[4].isChecked = true;
+                }
+            }
+
             for (int i = 0; i < model.lstServices.Count(); i++)
             {
                 if (model.lstServices[i].isChecked)
@@ -101,6 +115,7 @@ namespace INTEX.Controllers
 
         public ActionResult AddQuote()
         {
+           newModel.lstServices[6].isChecked = false;
            int custID = 11;
            Customer cust = db.customers.Find(custID);
            ViewBag.fName = cust.Cust_First_Name;
