@@ -22,7 +22,7 @@ namespace INTEX.Controllers
             return View();
         }
 
-        //Methods written by hand
+        //Methods written by hand. Most methods for the employee login run through here.
 
         //Shows all customers who have unfinished work orders
         [HttpGet]
@@ -91,7 +91,7 @@ namespace INTEX.Controllers
         }
 
         [HttpGet]
-        public ActionResult PastWorkOrders() //displays all work orders
+        public ActionResult PastWorkOrders() //displays all work orders, no matter the status
         {
             return View(db.work_orders.ToList());
         }
@@ -101,11 +101,13 @@ namespace INTEX.Controllers
         {
             String search = form["Search"].ToString();
 
+            //searches for customer ID in work orders table
             var checkSearch =
             db.Database.SqlQuery<Work_Orders>(
             "Select * " +
             "FROM Work_Orders " +
             "WHERE OrderID = '" + search + "'");
+
 
             if (checkSearch.Count() > 0)
             {
@@ -116,6 +118,31 @@ namespace INTEX.Controllers
                 return View(db.work_orders.ToList());
             }
             
+        }
+
+        [HttpPost]
+        public ActionResult PastWorkOrders1(FormCollection form)//searches database for the orderId searched by the user
+        {
+            String First = form["FirstName"].ToString();
+            String Last = form["LastName"].ToString();
+
+            //searches for first and last name in customer table
+            var FirstLastCheck =
+                db.Database.SqlQuery<Work_Orders>(
+                    "SELECT * " +
+                    "FROM Work_Orders " +
+                    "JOIN Customers ON Work_Orders.CustID = Customers.CustID " +
+                    "WHERE Customers.Cust_First_Name = '" + First + "' AND Customers.Cust_Last_Name = '" + Last + "'");
+
+            if (FirstLastCheck.Count() > 0)
+            {
+                return View("PastWorkOrders", FirstLastCheck.ToList());
+            }
+            else
+            {
+                return View("PastWorkOrders", db.work_orders.ToList());
+            }
+
         }
 
 
@@ -133,7 +160,7 @@ namespace INTEX.Controllers
             return View();
         }
 
-        [HttpGet]
+        [HttpGet] 
         public ActionResult ProfitabilityReport()
         {
             return View();
@@ -151,15 +178,10 @@ namespace INTEX.Controllers
             return View();
         }
 
-        public ActionResult Employees()
+        public ActionResult Employees() //shows a list of all the employees, allows for creating and editing etc.
         {
             return View(db.employees.ToList());
         }
-
-
-
-
-
 
 
 

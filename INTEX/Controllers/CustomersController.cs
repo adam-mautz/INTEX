@@ -116,7 +116,7 @@ namespace INTEX.Controllers
         public ActionResult AddQuote()
         {
            newModel.lstServices[6].isChecked = false;
-           int custID = 11;
+           int custID = 8;
            decimal price = 0;
            Customer cust = db.customers.Find(custID);
            ViewBag.fName = cust.Cust_First_Name;

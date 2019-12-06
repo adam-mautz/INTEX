@@ -10,7 +10,18 @@
 @using (Html.BeginForm("PastWorkOrders", "Employees", FormMethod.Post))
 {
     <label>Search by OrderID</label>
-    @Html.TextBox("Search")<br /><br />
+    @Html.TextBox("Search")<br />
+    <input type="submit" value="Search Order ID" /><br /><br />
+}
+
+@using (Html.BeginForm("PastWorkOrders1", "Employees", FormMethod.Post))
+{
+    <label><strong>Search by Customer Name</strong></label><br />
+    <label>First Name</label>
+    @Html.TextBox("FirstName")<br /><br />
+    <label>Last Name</label>
+    @Html.TextBox("LastName")<br /><br />
+    <input type="submit" value="Search Name" />
 }
 
 <br />

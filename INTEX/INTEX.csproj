@@ -162,6 +162,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CustPortalStyle.css" />
+    <Content Include="Content\Images\background.jpg" />
+    <Content Include="Content\Images\Performance Report.png" />
     <Content Include="Content\Images\Screen Shot 2019-12-05 at 11.45.38 AM.png" />
     <Content Include="Content\MyStyles.css" />
     <Content Include="Content\Site.css" />
