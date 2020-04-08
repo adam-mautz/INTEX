@@ -18,7 +18,7 @@ namespace INTEX.Controllers
         private NorthwestContext db = new NorthwestContext();
 
         // GET: Customers
-       // [Authorize]
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -64,7 +64,7 @@ namespace INTEX.Controllers
         }
 
         public static string custPhone;
-
+        //Sends list of available serivces to the view to be selected
         public ActionResult Quote()
         {
             ServicesModel services = new ServicesModel();
@@ -76,14 +76,17 @@ namespace INTEX.Controllers
             return View(services);
         }
 
+        //used to keep variables in use throughout the instance
         public static ServicesModel newModel = new ServicesModel();
         public static List<Services> newList = new List<Services>();
 
+
+        //Gather checked values and return view with according price
         [HttpPost]
         public ActionResult Quote(ServicesModel model)
         {
             decimal price = 0;
-
+        
             //USED FOR REQUIRED TESTING RELATIONSHIPS
             if (model.lstServices[2].isChecked == true)
             {
@@ -97,7 +100,7 @@ namespace INTEX.Controllers
                     model.lstServices[4].isChecked = true;
                 }
             }
-
+            //logic to calc the price of the selected tests
             for (int i = 0; i < model.lstServices.Count(); i++)
             {
                 if (model.lstServices[i].isChecked)
@@ -112,11 +115,11 @@ namespace INTEX.Controllers
 
             return View(model);
         }
-
+        //logic to confirm quote
         public ActionResult AddQuote()
         {
            newModel.lstServices[6].isChecked = false;
-           int custID = 8;
+           int custID = 11;
            decimal price = 0;
            Customer cust = db.customers.Find(custID);
            ViewBag.fName = cust.Cust_First_Name;
@@ -136,7 +139,7 @@ namespace INTEX.Controllers
             return View();
         }
       
-
+        //posting into several tables. some hard coding
         [HttpPost]
         public ActionResult AddQuote(Services model)
         {
@@ -166,7 +169,6 @@ namespace INTEX.Controllers
             workOrder.StatusID = "C";
             workOrder.Comments = "This is a comment.";
             workOrder.Reports = "this is a report";
-            //  workOrder.CustID = newCustomer.CustID;     for when you can have custID from login
             workOrder.CustID = 11;
 
             db.work_orders.Add(workOrder);
@@ -228,7 +230,7 @@ namespace INTEX.Controllers
             return View("Index");
         }
 
- 
+        //return customrs work orders
         public ActionResult WorkOrders()
         {
             var currentCustomer =
@@ -239,7 +241,7 @@ namespace INTEX.Controllers
             return View(currentCustomer.ToList());
         }
 
-
+        //return completed orders
         public ActionResult CompletedOrders()
         {
             var currentCustomer =
@@ -250,14 +252,14 @@ namespace INTEX.Controllers
             return View(currentCustomer.ToList());
         }
 
-
+        //view for page report
         public ActionResult Report(int orderID)
         {
             ViewBag.OrderID = orderID;
             return View();
         }
 
-
+        //return customer invoices
         public ActionResult Invoice()
         {
             var currentCustomer =
@@ -267,6 +269,10 @@ namespace INTEX.Controllers
            "WHERE CustID = '" + 11 + "'");
             return View(currentCustomer.ToList());
         }
+
+
+/// BELOW IS SCAFFOLDED CODE
+
 
         // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
